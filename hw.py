@@ -10,6 +10,12 @@ is_prime(10) -> False
 
 def is_prime(n: int) -> bool:
     # write your code here
+    if n <= 1:
+        return False
+    for i in range(2, int(n**(0.5))+1):   # this skips even numbers and only checks up to sqrt(x)
+            if n % i == 0:
+                return False
+    return True
     pass
 
 """
@@ -22,8 +28,18 @@ nth_fibonacci(6) -> 5
 nth_fibonacci(9) -> 21
 """
 
-def nth_fibonacci(n: int) -> int:
+def nth_fibonacci(n: int) -> int:      #0, 1, 1, 2, 3, 5, 8, 13, 21
     # write your code here
+    a = 0
+    b = 1
+    if (n==1):
+        return a
+    else:
+        for i in range(2,n):
+            b = a + b
+            a = b - a
+        return b
+        
     pass
 
 """
@@ -37,6 +53,10 @@ factorial(6) -> 720
 
 def factorial(n: int) -> int:
     # write your code here
+    a = 1
+    for i in range(1,n+1):
+        a = a*i
+    return a
     pass
 
 """
@@ -51,6 +71,12 @@ count_vowels("world") -> 1
 
 def count_vowels(s: str) -> int:
     # write your code here
+    c = 0
+    for i in range(len(s)):
+        if (s[i]=='a' or s[i]=='e' or s[i]=='i' or s[i]=='o' or s[i]=='u' 
+            or s[i]=='A' or s[i]=='E' or s[i]=='I' or s[i]=='O' or s[i]=='U'):
+            c = c + 1
+    return c   
     pass
 
 """
@@ -65,6 +91,12 @@ sum_of_digits(98765) -> 35
 
 def sum_of_digits(n: int) -> int:
     # write your code here
+    s = 0
+    n = abs(n)
+    while ((n*10)//10 != 0):
+        s = s + (n%10)
+        n = n//10
+    return s 
     pass
 
 
@@ -79,6 +111,7 @@ reverse_string("world") -> "dlrow"
 
 def reverse_string(s: str) -> str:
     # write your code here
+    return s[::-1]
     pass
 
 
@@ -94,6 +127,10 @@ sum_of_squares(5) -> 55
 
 def sum_of_squares(n: int) -> int:
     # write your code here
+    s = 0
+    for i in range(1,n):
+        s = s + i*i
+    return s    
     pass
 
 
@@ -109,6 +146,15 @@ collatz_sequence_length(27) -> 112
 
 def collatz_sequence_length(n: int) -> int:
     # write your code here
+    i = 1
+    while (n != 1):
+        if (n%2==0):
+            n = n/2
+        else:
+            n = 3*n + 1
+        i = i +1
+    return i
+
     pass
 
 
@@ -124,6 +170,13 @@ is_leap_year(1900) -> False
 
 def is_leap_year(year: int) -> bool:
     # write your code here
+    if (year%400==0 and year%100==0):
+        c = True
+    elif (year%4==0 and year%100!=0):
+        c = True 
+    else:
+        c = False
+    return c
     pass
 
 
