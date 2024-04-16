@@ -65,7 +65,7 @@ class TestHomeWork7(unittest.TestCase):
         self.assertEqual(sum_of_digits(12345), 15)
         self.assertEqual(sum_of_digits(98765), 35)
         self.assertEqual(sum_of_digits(0), 0)
-        #self.assertEqual(sum_of_digits(-12345), 15)
+        self.assertEqual(sum_of_digits(-12345), 15)
         self.assertEqual(sum_of_digits(10000), 1)
         self.assertEqual(sum_of_digits(10 ** 1000 - 1), 9000)
 
